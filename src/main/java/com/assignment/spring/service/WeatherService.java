@@ -3,6 +3,7 @@ package com.assignment.spring.service;
 import com.assignment.spring.domain.WeatherEntity;
 import com.assignment.spring.repository.WeatherRepository;
 import com.assignment.spring.api.WeatherResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ import org.springframework.web.client.RestTemplate;
 
 
 @Service
+@Slf4j
 public class WeatherService {
 
     @Value("${openWeather.appId}")
@@ -33,7 +35,10 @@ public class WeatherService {
 
     public WeatherEntity getWeatherByCityName(String city){
         String url =weatherApiUrl.replace("{city}", city).replace("{appId}", appId);
+        log.info("openWeather url:{} ",url );
         ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(url, WeatherResponse.class);
+        log.info("openWeather  response : {}", response);
+
         return mapper(response.getBody());
     }
 
