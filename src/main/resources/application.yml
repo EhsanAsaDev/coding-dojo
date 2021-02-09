@@ -13,3 +13,14 @@ spring:
 openWeather:
   appId: 921070dad9367e4b34b002eea4c1b557
   url: http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appId}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
