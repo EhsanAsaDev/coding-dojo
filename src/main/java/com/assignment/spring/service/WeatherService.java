@@ -31,9 +31,7 @@ public class WeatherService {
         this.weatherRepository = weatherRepository;
     }
 
-
     public WeatherEntity getWeatherByCityName(String city){
-
         String url =weatherApiUrl.replace("{city}", city).replace("{appId}", appId);
         ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(url, WeatherResponse.class);
         return mapper(response.getBody());
@@ -44,7 +42,15 @@ public class WeatherService {
         entity.setCity(response.getName());
         entity.setCountry(response.getSys().getCountry());
         entity.setTemperature(response.getMain().getTemp());
-
         return weatherRepository.save(entity);
+    }
+
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public void setWeatherApiUrl(String weatherApiUrl) {
+        this.weatherApiUrl = weatherApiUrl;
     }
 }   
