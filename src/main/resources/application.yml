@@ -2,13 +2,13 @@ server:
   port: 9091
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   datasource:
     url: "jdbc:postgresql://localhost:5432/weather"
     username: postgres
     password: postgres
+  flyway:
+    baseline-on-migrate: true
 
 openWeather:
   appId: 921070dad9367e4b34b002eea4c1b557
