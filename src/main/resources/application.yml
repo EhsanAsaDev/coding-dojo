@@ -9,3 +9,7 @@ spring:
     url: "jdbc:postgresql://localhost:5432/weather"
     username: postgres
     password: postgres
+
+openWeather:
+  appId: 921070dad9367e4b34b002eea4c1b557
+  url: http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={appId}
