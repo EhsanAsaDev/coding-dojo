@@ -1,22 +1,30 @@
 Spring Boot Coding Dojo
 ---
+This is my technical assignment!
 
-Welcome to the Spring Boot Coding Dojo!
+### What I did
 
-### Introduction
+As the new engineer leading this project for make it production grade, I did some things sequentially:
 
-This is a simple application that requests its data from [OpenWeather](https://openweathermap.org/) and stores the result in a database. The current implementation has quite a few problems making it a non-production ready product.
+first of all I update and upgrade spring dependency in this way I can sure about using fresh and compatible libraries.
 
-### The task
+then did some refactoring and repackaging. I tried to create and build a structure base on MVC development.
 
-As the new engineer leading this project, your first task is to make it production-grade, feel free to refactor any piece
-necessary to achieve the goal.
+the next thing is important to me is having test methods so I implemented unit test and integration test. 
+As a developer when I have test I always be motivate and eager to do refactor continuously.
 
-### How to deliver the code
+one of important thing your project should have in production is database version controlling so I use Flyway for this approach.
 
-Please send an email containing your solution with a link to a public repository.
+I believe health api in spring boot is an useful option on production so I active that.
 
->**DO NOT create a Pull Request with your solution** 
+When you provide web service it's important have simple ui to test it in development or even in production so I active Swagger.
 
-### Footnote
-It's possible to generate the API key going to the [OpenWeather Sign up](https://openweathermap.org/appid) page.
+And finally for have simple and reliable decoying I dockerized the project.
+
+
+### How to run and use
+
+first of all you should build and package jar file with maven.
+then, I provided docker file so you can create image with this file.
+and finally you can change environment variables on docker compose file and launch it with docker command.
+via home page ( index page) you can access with swagger to test apis.
