@@ -39,16 +39,10 @@ public class WeatherService {
         ResponseEntity<WeatherResponse> response = restTemplate.getForEntity(url, WeatherResponse.class);
         log.info("openWeather  response : {}", response);
 
-        return mapper(response.getBody());
+        return weatherRepository.save(WeatherMapper.mapper(response.getBody()));
     }
 
-    private WeatherEntity mapper(WeatherResponse response) {
-        WeatherEntity entity = new WeatherEntity();
-        entity.setCity(response.getName());
-        entity.setCountry(response.getSys().getCountry());
-        entity.setTemperature(response.getMain().getTemp());
-        return weatherRepository.save(entity);
-    }
+
 
 
     public void setAppId(String appId) {
