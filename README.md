@@ -19,12 +19,12 @@ I believe health api in spring boot is an useful option on production so I activ
 
 When you provide web service it's important have simple ui to test it in development or even in production so I active Swagger.
 
-And finally for have simple and reliable decoying I dockerized the project.
+And finally for have simple and reliable deploying I dockerized the project.
 
 
 ### How to run and use
 
-first of all you should build and package jar file with maven.
-then, I provided docker file so you can create image with this file.
-and finally you can change environment variables on docker compose file and launch it with docker command.
-via home page ( index page) you can access with swagger to test apis.
+first you should build and package jar file with maven.
+then, I provided docker file, so you can create an image with this file.
+and finally you can change environment variables on the docker compose file and launch it with docker command.
+via home page ( port:9091) you can access with swagger to test apis.
